@@ -26,7 +26,7 @@ export default function Navbar() {
                         <a href="https://facebook.com/r.king.188" className="btn btn btn-primary ms-2 rounded-avator" target="blank">
                             <i class="fa-brands fa-facebook"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/poovarasan-r-82379a222/" className=" btn btn-primary ms-2">
+                        <a href="https://www.linkedin.com/in/flower-king-82379a222" className=" btn btn-primary ms-2">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                         <a href="https://wa.me/+919150371784" className="btn btn btn-success ms-2 rounded-avator" target="blank">
