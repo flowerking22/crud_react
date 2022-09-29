@@ -1,0 +1,66 @@
+<!-- Modal HTML Markup -->
+<div id="ModalExample" class="modal fade img-fluid">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center">Weather Report Form</h4>
+                <button type="button" class="btn-close btn-warning" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body img-fluid mymodal">
+                <div class="mymodal img-fluid">
+                    <form role="form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="form col-12 ">
+                        <div class="form-group">
+                            <label class="control-label p-2" for="cityi">Enter your place</label>
+                            <div>
+                                <input type="text" class="form-control" name="city" [(ngModel)]="city" id="cityi" />
+                            </div>
+
+                        </div>
+                        <div class="form-group text-center">
+                            <div>
+                                <button type="submit" class="btn btn-primary m-4" data-bs-dismiss="modal">
+                                    Find
+                                </button>
+                                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+<!-- /.modal -->
+<button type="button" class="btn btn-warning btn-sm  mx-auto" data-bs-toggle="modal" data-bs-target="#ModalExample"
+    style="float:right;position: relative;border-radius: 15px;" #openBtn id="modalopen">
+    +
+</button>
+
+<div class="row m-1">
+    <div class="card col-12 col-lg-3 col-sm-6 col-md-4 justify-content-center" *ngFor="let c of cites;index as i"
+        id="card">
+        <div class="">
+            <div class=" card-body bg-info text-white " id="cardbody">
+                <button type="button" class="btn-warning" style="float:right;" (click)="onDel(i)">X</button>
+                <div class="text-center"><img src="https://openweathermap.org/img/wn/{{ c.weather[0].icon }}@2x.png"
+                        class="text-white bg-default img-responsive text-center" alt="image loading" /></div>
+
+                <h5 class="card-title text-White text-center " id="city">{{ c.name|uppercase}}</h5>
+
+                <p class="card-text">{{ c.weather[0].description }}</p>
+                <p>Temp is :- <i class=' text-warning bold'>{{c.main.temp_max}}`C </i></p>
+                <p>Humidity {{c.main.humidity}}</p>
+                <a href="https://www.google.com/search?q={{c.name|uppercase}} +weather now" target="_blank"
+                    class="btn btn-outline-primary  d-flex justify-content-center">View</a>
+            </div>
+        </div>
+    </div>
+</div>
